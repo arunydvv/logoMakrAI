@@ -1,15 +1,26 @@
 import { Button } from "@/components/ui/button";
-import React from "react";
+import { GoArrowRight } from "react-icons/go";
+import { cn } from "@/lib/utils";
 
 const Header = () => {
   return (
-    <header className="bg-black h-20 flex justify-between px-10 items-center">
-      <h1 className="text-white text-2xl font-bold">LogoMakrAI</h1>
-      <Button className="text-white bg-black border-2 border-transparent hover:border-white hover:bg-white hover:text-black transition-all duration-300 ease-in-out transform hover:scale-102 px-6 py-2 rounded-md">
-        Get Started
+    <header className="h-20 flex justify-between px-10 items-center bg-white">
+      <h1 className={cn("bg-clip-text text-transparent bg-black text-2xl font-bold")}>
+        LogoMakrAI
+      </h1>
+      <Button
+        className={cn(
+          "text-white",
+          " hover:bg-fuchsia-800 ",
+          "border-2 border-transparent",
+          "px-6 py-2 rounded-md"
+        )}
+      >
+        Get Started <GoArrowRight />
       </Button>
     </header>
   );
 };
 
 export default Header;
+
