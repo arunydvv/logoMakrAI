@@ -5,8 +5,12 @@ import { cn } from "@/lib/utils";
 const Header = () => {
   return (
     <header className="h-20 flex justify-between px-10 items-center bg-white">
-      <h1 className={cn("bg-clip-text text-transparent bg-black text-2xl font-bold")}>
-        LogoMakrAI
+      <h1
+        className={cn(
+          "bg-clip-text text-transparent bg-fuchsia-800  text-2xl font-bold"
+        )}
+      >
+        LogoMakr
       </h1>
       <Button
         className={cn(
