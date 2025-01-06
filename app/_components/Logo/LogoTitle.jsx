@@ -15,13 +15,14 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import Curved from "../Divs/Curved";
+import CategorySection from "../Divs/CategorySection";
+
 
 // Define Zod schema
 const formSchema = z.object({
   logoTitle: z
     .string()
-    .min(1, "Logo Title must be at least 1 character.")
+    .min(1, "Logo Title is required.")
     .nonempty("Logo Title is required."),
   logoDescription: z
     .string()
@@ -55,7 +56,7 @@ export function InputForm() {
   }
 
   return (
-    <div className="pt-3 w-full p-2 pl-8 mx-auto space-y-6">
+    <div className="pt-6 w-full p-4 pl-8 mx-auto space-y-6">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
           {/* Logo Title Field */}
@@ -64,19 +65,21 @@ export function InputForm() {
             name="logoTitle"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Logo Title</FormLabel>
+                <FormLabel className="text-lg font-semibold">
+                  Logo Title
+                </FormLabel>
                 <FormControl>
                   <Input
-                    className="h-8 align-top placeholder:text-xs placeholder:tracking-wide p-3"
+                    className="h-12 border-[2px] placeholder:text-sm placeholder:tracking-wide p-3 rounded-lg  border-gray-300 focus:outline-none focus:ring-2 focus:ring-fuchsia-500"
                     placeholder="Add title for the project"
                     {...field}
                   />
                 </FormControl>
                 <FormDescription className="text-xs">
-                  Add your Title
+                  Enter a meaningful title for your logo.
                 </FormDescription>
                 {errorMessage && (
-                  <FormMessage className="text-red-500">
+                  <FormMessage className="text-red-500 text-sm">
                     {errorMessage}
                   </FormMessage>
                 )}
@@ -90,20 +93,21 @@ export function InputForm() {
             name="logoDescription"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Logo Description</FormLabel>
+                <FormLabel className="text-lg font-semibold">
+                  Logo Description
+                </FormLabel>
                 <FormControl>
                   <Textarea
-                    className="h-20 resize-none align-top placeholder:text-xs placeholder:tracking-wide p-3"
-                    placeholder="Share your ideas, themes, or inspirations to create a logo that
-                  perfectly represents your brand or project"
+                    className="h-32 resize-none placeholder:text-sm placeholder:tracking-wide p-3 rounded-lg border-[2px] border-gray-300 focus:outline-none focus:ring-2 focus:ring-fuchsia-500"
+                    placeholder="Describe your logo idea, vision, or inspiration."
                     {...field}
                   />
                 </FormControl>
                 <FormDescription className="text-xs">
-                  Describe Your Logo Vision
+                  Share your vision for the logo design.
                 </FormDescription>
                 {errorMessage && (
-                  <FormMessage className="text-red-500">
+                  <FormMessage className="text-red-500 text-sm">
                     {errorMessage}
                   </FormMessage>
                 )}
@@ -111,19 +115,27 @@ export function InputForm() {
             )}
           />
 
-          <label className=" text-[0.875rem] py-[4.5rem]">Logo Style</label>
-          <div>
-            <Curved>Hello</Curved>
-            <Curved>Hello</Curved>
-            <Curved>Hello</Curved>
-          </div>
 
-          <Button className=" w-full" type="submit">
+            <CategorySection></CategorySection>
+
+
+          <Button
+            className="w-full py-3 text-white bg-fuchsia-800 hover:bg-fuchsia-700 rounded-lg"
+            type="submit"
+          >
             Submit
           </Button>
         </form>
       </Form>
 
+      {submittedData && (
+        <div className="mt-6 p-4 border rounded bg-green-100">
+          <h3 className="font-bold">Submitted Data:</h3>
+          <pre className="text-sm">
+            {JSON.stringify(submittedData, null, 2)}
+          </pre>
+        </div>
+      )}
     </div>
   );
 }
