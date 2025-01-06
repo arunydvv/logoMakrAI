@@ -14,6 +14,8 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import Curved from "../Divs/Curved";
 
 // Define Zod schema
 const formSchema = z.object({
@@ -64,10 +66,14 @@ export function InputForm() {
               <FormItem>
                 <FormLabel>Logo Title</FormLabel>
                 <FormControl>
-                  <Input placeholder="Enter your logo title" {...field} />
+                  <Input
+                    className="h-8 align-top placeholder:text-xs placeholder:tracking-wide p-3"
+                    placeholder="Add title for the project"
+                    {...field}
+                  />
                 </FormControl>
-                <FormDescription>
-                  This will be the title of your logo.
+                <FormDescription className="text-xs">
+                  Add your Title
                 </FormDescription>
                 {errorMessage && (
                   <FormMessage className="text-red-500">
@@ -86,14 +92,15 @@ export function InputForm() {
               <FormItem>
                 <FormLabel>Logo Description</FormLabel>
                 <FormControl>
-                  <Input
-                    className="h-24 pt-2 leading-none"
-                    placeholder="Describe your logo  "
+                  <Textarea
+                    className="h-20 resize-none align-top placeholder:text-xs placeholder:tracking-wide p-3"
+                    placeholder="Share your ideas, themes, or inspirations to create a logo that
+                  perfectly represents your brand or project"
                     {...field}
                   />
                 </FormControl>
-                <FormDescription className="">
-                  Provide a brief description of your logo.
+                <FormDescription className="text-xs">
+                  Describe Your Logo Vision
                 </FormDescription>
                 {errorMessage && (
                   <FormMessage className="text-red-500">
@@ -104,20 +111,19 @@ export function InputForm() {
             )}
           />
 
-          <Button className="content-center w-full" type="submit">
+          <label className=" text-[0.875rem] py-[4.5rem]">Logo Style</label>
+          <div>
+            <Curved>Hello</Curved>
+            <Curved>Hello</Curved>
+            <Curved>Hello</Curved>
+          </div>
+
+          <Button className=" w-full" type="submit">
             Submit
           </Button>
         </form>
       </Form>
 
-      {submittedData && (
-        <div className="mt-4 p-4 border rounded bg-green-100">
-          <h3 className="font-bold">Submitted Data:</h3>
-          <pre className="text-sm">
-            {JSON.stringify(submittedData, null, 2)}
-          </pre>
-        </div>
-      )}
     </div>
   );
 }

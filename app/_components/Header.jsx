@@ -1,11 +1,15 @@
+'use client'
 import { Button } from "@/components/ui/button";
 import { GoArrowRight } from "react-icons/go";
 import { cn } from "@/lib/utils";
+import { useRouter } from "next/navigation";
 
 const Header = () => {
+  const router = useRouter();
   return (
-    <header className="h-20 flex justify-between px-10 items-center bg-white">
+    <header className="h-20 flex justify-between px-10 items-center bg-white hover:cursor-pointer">
       <h1
+        onClick={() => router.push("/")}
         className={cn(
           "bg-clip-text text-transparent bg-fuchsia-800  text-2xl font-bold"
         )}
@@ -13,6 +17,7 @@ const Header = () => {
         LogoMakr
       </h1>
       <Button
+        onClick={() => router.push("/create")}
         className={cn(
           "text-white",
           " hover:bg-fuchsia-800 ",
