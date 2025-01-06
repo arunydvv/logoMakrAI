@@ -1,15 +1,25 @@
-"use client"
+"use client";
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { GoArrowRight } from "react-icons/go";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+
+
 
 export const Hero = () => {
-  const [logoTitle, setlogoTitle] = useState("")
+  const [logoTitle, setlogoTitle] = useState("");
+  const router = useRouter();
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      router.push(`/create?title=${logoTitle}`);
+    }
+  };
 
   return (
-    <section className="mt-10">
+    <section className="mt-16">
       <div className="max-w-4xl mx-auto py-16 px-4 sm:px-6 lg:px-8 min-h-[calc(100vh-20rem)] flex flex-col items-center justify-center">
         <h1 className="font-sans font-bold text-center text-4xl sm:text-5xl lg:text-6xl leading-snug bg-transparent">
           Transform Your Vision into a{" "}
@@ -26,14 +36,16 @@ export const Hero = () => {
           </p>
         </div>
 
-        <div className="flex flex-col sm:flex-row w-full max-w-sm items-center space-y-4 sm:space-y-0 sm:space-x-2 mt-6">
+        <div className="flex flex-col sm:flex-row w-full max-w-sm items-center space-y-4 sm:space-y-0 sm:space-x-2 mt-8">
           <Input
             type="text"
             placeholder="Logo Name"
-            className="flex-1"
+            className="flex-1 border-gray-300 focus:border-fuchsia-600"
             value={logoTitle}
             onChange={(e) => setlogoTitle(e?.target.value)}
+            onKeyDown={handleKeyDown} // Add the keydown event to handle "Enter"
           />
+
           <Link href={`/create?title=${logoTitle}`}>
             <Button
               type="submit"
