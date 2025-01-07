@@ -10,7 +10,7 @@ const categories = [
 ];
 
 const CategorySection = () => {
-  const [selectedCategory, setSelectedCategory] = useState(""); // Fixed useState usage
+  const [selectedCategory, setSelectedCategory] = useState(""); 
 
   const handleCategoryClick = (category) => {
     setSelectedCategory(category.name);
