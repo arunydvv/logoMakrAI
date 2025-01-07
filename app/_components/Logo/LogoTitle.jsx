@@ -70,7 +70,7 @@ export function InputForm() {
                 </FormLabel>
                 <FormControl>
                   <Input
-                    className="h-12 border-[2px] placeholder:text-sm placeholder:tracking-wide p-3 rounded-lg  border-gray-300 focus:outline-none focus:ring-2 focus:ring-fuchsia-500"
+                    className="h-12 border-[2px] placeholder:text-sm placeholder:tracking-wide p-3 rounded-lg  border-gray-300 focus:outline-none focus:ring-2 focus:border-none"
                     placeholder="Add title for the project"
                     {...field}
                   />
@@ -98,7 +98,7 @@ export function InputForm() {
                 </FormLabel>
                 <FormControl>
                   <Textarea
-                    className="h-32 resize-none placeholder:text-sm placeholder:tracking-wide p-3 rounded-lg border-[2px] border-gray-300 focus:outline-none focus:ring-2 focus:ring-fuchsia-500"
+                    className="h-32 resize-none placeholder:text-sm placeholder:tracking-wide p-3  rounded-lg border-[2px] focus:border-none border-gray-300 focus:outline-none focus:ring-1 "
                     placeholder="Describe your logo idea, vision, or inspiration."
                     {...field}
                   />
@@ -115,9 +115,7 @@ export function InputForm() {
             )}
           />
 
-
-            <CategorySection></CategorySection>
-
+          <CategorySection></CategorySection>
 
           <Button
             className="w-full py-3 text-white bg-fuchsia-800 hover:bg-fuchsia-700 rounded-lg"
