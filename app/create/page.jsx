@@ -1,6 +1,8 @@
+"use client"
 import React from "react";
 import LogoTitle from "../_components/Logo/LogoTitle";
-import Description from "../_components/Logo/Description";
+import HomePage from "../_components/Logo/Display";
+
 
 const CreateLogo = () => {
   return (
@@ -13,14 +15,15 @@ const CreateLogo = () => {
       {/* Right section */}
       <div className="lg:w-8/12 border-[1px] pr-10 border-zinc-300 w-full p-2 mt-4 lg:mt-0 flex items-center justify-center bg-fuchsia-50 rounded-lg h-auto">
         <div className="flex flex-col items-center justify-center h-full">
-          <img
+          {/* <img
             src="/image.svg"
             className="lg:w-1/3 w-2/3"
             alt="Image Creation"
           />
           <h1 className="text-sm text-zinc-500 text-center">
             You Imagine It, We Make It !!
-          </h1>
+          </h1> */}
+          <HomePage />
         </div>
       </div>
     </div>
